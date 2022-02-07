@@ -1,11 +1,14 @@
 import './App.css';
-import Drum from './components/Drum';
+import { ChakraProvider } from '@chakra-ui/react';
+import Keys from './components/Keys';
 
 function App() {
   return (
-    <div className="App">
-      <Drum />
-    </div>
+    <ChakraProvider>
+      <div className="App">
+        <Keys />
+      </div>
+    </ChakraProvider>
   );
 }
 
