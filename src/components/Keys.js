@@ -1,63 +1,63 @@
-import React, { Component } from 'react';
-import { Heading } from '@chakra-ui/react';
+import React, { useState } from 'react';
+import { marked } from 'marked';
 
-export default class Keys extends Component {
-  render() {
-    return (
-      <div>
-        <Heading as="h3" size="xl" mb={4}>
-          Keys
-        </Heading>
+export default function Keys() {
+  const [input, setInput] = useState(defaultMarkdown);
+  return (
+    <div>
+      <h2>Input</h2>
+      <textarea
+        onChange={(e) => setInput(e.target.value)}
+        placeholder="Input here"
+        value={input}
+      />
+      <h2>Output</h2>
+      <p dangerouslySetInnerHTML={{ __html: marked.parse(input) }} />
+    </div>
+  );
+}
 
-        <div className="keys">
-          <div data-key="65" className="key">
-            <kbd>A</kbd>
-            <span className="sound">clap</span>
-          </div>
-          <div data-key="83" className="key">
-            <kbd>S</kbd>
-            <span className="sound">hihat</span>
-          </div>
-          <div data-key="68" className="key">
-            <kbd>D</kbd>
-            <span className="sound">kick</span>
-          </div>
-          <div data-key="70" className="key">
-            <kbd>F</kbd>
-            <span className="sound">openhat</span>
-          </div>
-          <div data-key="71" className="key">
-            <kbd>G</kbd>
-            <span className="sound">boom</span>
-          </div>
-          <div data-key="72" className="key">
-            <kbd>H</kbd>
-            <span className="sound">ride</span>
-          </div>
-          <div data-key="74" className="key">
-            <kbd>J</kbd>
-            <span className="sound">snare</span>
-          </div>
-          <div data-key="75" className="key">
-            <kbd>K</kbd>
-            <span className="sound">tom</span>
-          </div>
-          <div data-key="76" className="key">
-            <kbd>L</kbd>
-            <span className="sound">tink</span>
-          </div>
-        </div>
+const defaultMarkdown = `# Welcome to my React Markdown Previewer!
 
-        <audio data-key="65" src="sounds/clap.wav"></audio>
-        <audio data-key="83" src="sounds/hihat.wav"></audio>
-        <audio data-key="68" src="sounds/kick.wav"></audio>
-        <audio data-key="70" src="sounds/openhat.wav"></audio>
-        <audio data-key="71" src="sounds/boom.wav"></audio>
-        <audio data-key="72" src="sounds/ride.wav"></audio>
-        <audio data-key="74" src="sounds/snare.wav"></audio>
-        <audio data-key="75" src="sounds/tom.wav"></audio>
-        <audio data-key="76" src="sounds/tink.wav"></audio>
-      </div>
-    );
+## This is a sub-heading...
+### And here's some other cool stuff:
+
+Heres some code, \`<div></div>\`, between 2 backticks.
+
+\`\`\`
+// this is multi-line code:
+
+function anotherExample(firstLine, lastLine) {
+  if (firstLine == '\`\`\`' && lastLine == '\`\`\`') {
+    return multiLineCode;
   }
 }
+\`\`\`
+
+You can also make text **bold**... whoa!
+Or _italic_.
+Or... wait for it... **_both!_**
+And feel free to go crazy ~~crossing stuff out~~.
+
+There's also [links](https://www.freecodecamp.org), and
+> Block Quotes!
+
+And if you want to get really crazy, even tables:
+
+Wild Header | Crazy Header | Another Header?
+------------ | ------------- | -------------
+Your content can | be here, and it | can be here....
+And here. | Okay. | I think we get it.
+
+- And of course there are lists.
+  - Some are bulleted.
+     - With different indentation levels.
+        - That look like this.
+
+
+1. And there are numbered lists too.
+1. Use just 1s if you want!
+1. And last but not least, let's not forget embedded images:
+
+![Some Random Images](https://picsum.photos/300/300)
+`;
