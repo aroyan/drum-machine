@@ -1,12 +1,11 @@
 import './App.css';
+import Effect from './components/Effect';
 // import { ChakraProvider } from '@chakra-ui/react';
-import Keys from './components/Keys';
-
 function App() {
   return (
     // <ChakraProvider>
     <div className="App">
-      <Keys />
+      <Effect />
     </div>
     // </ChakraProvider>
   );
