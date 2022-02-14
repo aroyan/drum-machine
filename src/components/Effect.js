@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 export default function Effect() {
   const [count, setCount] = useState(0);
-  const [keyCode, setKeyCode] = useState('');
+  const [keyCode, setKeyCode] = useState('KeyCode');
   const keyCodes = [
     'KeyA',
     'KeyB',
