@@ -82,7 +82,6 @@ export default function Effect() {
           background: 'maroon',
           color: 'white',
           width: '100px',
-          margin: '0 auto',
           border: '1px solid green',
           cursor: 'pointer',
           userSelect: 'none',
@@ -143,8 +142,16 @@ export default function Effect() {
         <div id="display">
           <div>
             <p>{keyCode}</p>
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+            >
+              <div onClick={playAudioClick}>{listItems}</div>
+            </div>
             <p id="display">{key}</p>
-            <div onClick={playAudioClick}>{listItems}</div>
           </div>
         </div>
       </div>
