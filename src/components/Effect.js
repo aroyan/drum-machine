@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function Effect() {
   const [keyCode, setKeyCode] = useState('KeyCode');
-  const [key, setKey] = useState('Press Button');
+  const [key, setKey] = useState('Press Key');
   const keyCodes = [
     'KeyQ',
     'KeyW',
@@ -72,17 +72,56 @@ export default function Effect() {
     },
   ];
 
-  useEffect(() => {
-    function playAudio(e) {
-      for (let i in bankOne) {
-        if (e.code === bankOne[i].code) {
-          setKey(bankOne[i].keyTrigger);
-          const audio = new Audio(bankOne[i].url);
-          audio.currentTime = 0;
-          audio.play();
-        }
+  const listItems = bankOne.map((a) => {
+    return (
+      <div
+        key={a.code}
+        id={a.keyTrigger}
+        style={{
+          padding: '1rem',
+          background: 'maroon',
+          color: 'white',
+          width: '100px',
+          margin: '0 auto',
+          border: '1px solid green',
+          cursor: 'pointer',
+          userSelect: 'none',
+        }}
+        className="drum-pad"
+      >
+        <audio src={a.url} id={a.keyTrigger} className="clip" />
+        {a.keyTrigger}
+      </div>
+    );
+  });
+
+  function playAudio(e) {
+    for (let i in bankOne) {
+      if (e.code === bankOne[i].code) {
+        setKey(bankOne[i].id);
+        const audio = new Audio(bankOne[i].url);
+        audio.currentTime = 0;
+        audio.play();
       }
     }
+  }
+
+  function playAudioClick(e) {
+    for (let i in bankOne) {
+      if (bankOne[i].keyTrigger === e.target.id) {
+        setKey(bankOne[i].id);
+        const audio = new Audio(bankOne[i].url);
+        audio.currentTime = 0;
+        audio.play();
+      }
+    }
+  }
+
+  // useEffect(() => {
+  //   document.addEventListener('click', playAudioClick);
+  // });
+
+  useEffect(() => {
     document.addEventListener('keydown', playAudio);
   });
 
@@ -102,8 +141,11 @@ export default function Effect() {
     <main>
       <div id="drum-machine">
         <div id="display">
-          <p>{keyCode}</p>
-          <p>{key}</p>
+          <div>
+            <p>{keyCode}</p>
+            <p id="display">{key}</p>
+            <div onClick={playAudioClick}>{listItems}</div>
+          </div>
         </div>
       </div>
     </main>
