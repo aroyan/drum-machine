@@ -116,10 +116,6 @@ export default function Effect() {
     }
   }
 
-  // useEffect(() => {
-  //   document.addEventListener('click', playAudioClick);
-  // });
-
   useEffect(() => {
     document.addEventListener('keydown', playAudio);
   });
