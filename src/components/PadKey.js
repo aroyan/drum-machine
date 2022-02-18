@@ -20,7 +20,7 @@ export default function PadKey(props) {
     audio.play();
     // Add style while playing
     setTimeout(() => {
-      pad.style = 'border: 3px solid orange; color: orange;';
+      pad.style = 'border: 3px solid #b25438; color: #b25438;';
     }, 100);
     // Remove style after playing
     setTimeout(() => {
