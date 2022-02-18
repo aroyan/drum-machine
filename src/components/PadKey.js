@@ -15,8 +15,17 @@ export default function PadKey(props) {
   //Play audio
   function playAudio() {
     const audio = document.getElementById(props.keyTrigger);
+    const pad = document.getElementById(props.clipId);
     audio.currentTime = 0;
     audio.play();
+    // Add style while playing
+    setTimeout(() => {
+      pad.style = 'border: 3px solid orange; color: orange;';
+    }, 100);
+    // Remove style after playing
+    setTimeout(() => {
+      pad.style = 'border: 2px solid #38B2AC';
+    }, 200);
     props.setDisplay(props.clipId);
   }
   //Add event listener using useEffect hook
@@ -36,11 +45,11 @@ export default function PadKey(props) {
       p={'6'}
       m={'2'}
       borderRadius={'0.5rem'}
-      tabIndex={'0'}
-      _focus={{
-        outline: '2px solid cyan',
-        border: 'none',
-      }}
+      // tabIndex={'0'}
+      // _focus={{
+      //   outline: '2px solid cyan',
+      //   border: 'none',
+      // }}
     >
       <audio src={props.clip} className="clip" id={props.keyTrigger} />
       <Text
