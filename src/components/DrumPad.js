@@ -91,6 +91,8 @@ export default function DrumPad({ display, setDisplay }) {
         id="display"
         cursor={'none'}
         userSelect={'none'}
+        color={'#4e9894'}
+        letterSpacing={'0.25rem'}
       >
         {display}
       </Heading>
