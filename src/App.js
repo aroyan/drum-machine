@@ -1,19 +1,35 @@
 import { useState } from 'react';
-import { ChakraProvider } from '@chakra-ui/react';
+import { ChakraProvider, Container, Flex, Heading } from '@chakra-ui/react';
 import DrumPad from './components/DrumPad';
 
 function App() {
-  const [display, setDisplay] = useState('press');
+  const [display, setDisplay] = useState('Press Key');
   return (
     <ChakraProvider>
-      <div className="App">
+      <Container
+        className="App"
+        bg="blackAlpha.900"
+        color="whiteAlpha.800"
+        minW={'full'}
+        minH={'100vh'}
+        textAlign={'center'}
+      >
         <div id="drum-machine">
-          <div id="display">
-            <h2>Drum Machine</h2>
+          <Flex
+            id="display"
+            flexDir={'column'}
+            align={'center'}
+            justify={'center'}
+            minW={'full'}
+            minH={'100vh'}
+          >
+            <Heading as={'h1'} mb={'10'}>
+              Drum Machine
+            </Heading>
             <DrumPad display={display} setDisplay={setDisplay} />
-          </div>
+          </Flex>
         </div>
-      </div>
+      </Container>
     </ChakraProvider>
   );
 }

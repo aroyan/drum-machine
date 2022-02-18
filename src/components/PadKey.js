@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Text, Box } from '@chakra-ui/react';
 
 export default function PadKey(props) {
   //Handle keypress event and play sound
@@ -27,9 +28,24 @@ export default function PadKey(props) {
     };
   });
   return (
-    <div className="drum-pad" id={props.clipId} onClick={playAudio}>
+    <Box
+      className="drum-pad"
+      id={props.clipId}
+      onClick={playAudio}
+      border={'2px solid indigo'}
+      p={'6'}
+      m={'2'}
+      borderRadius={'0.5rem'}
+    >
       <audio src={props.clip} className="clip" id={props.keyTrigger} />
-      {props.keyTrigger}
-    </div>
+      <Text
+        fontSize="2xl"
+        fontWeight="bold"
+        userSelect={'none'}
+        cursor={'pointer'}
+      >
+        {props.keyTrigger}
+      </Text>
+    </Box>
   );
 }

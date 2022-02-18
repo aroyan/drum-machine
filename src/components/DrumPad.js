@@ -1,4 +1,5 @@
 import PadKey from './PadKey';
+import { Box, Grid, Heading } from '@chakra-ui/react';
 
 const audioBank = [
   {
@@ -80,9 +81,13 @@ export default function DrumPad({ display, setDisplay }) {
     );
   });
   return (
-    <div className="pad-bank">
-      {padBank}
-      <p id="display">{display}</p>
-    </div>
+    <Box>
+      <Grid templateColumns={'repeat(3, 1fr)'} className="pad-bank" mb={'4'}>
+        {padBank}
+      </Grid>
+      <Heading as={'h2'} fontSize={'xl'} id="display">
+        {display}
+      </Heading>
+    </Box>
   );
 }
