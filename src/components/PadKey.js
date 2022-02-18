@@ -27,16 +27,7 @@ export default function PadKey(props) {
     };
   });
   return (
-    <div
-      className="drum-pad"
-      id={props.clipId}
-      onClick={playAudio}
-      style={{
-        border: '1px solid orange',
-        marginBottom: '8px',
-        padding: '8px',
-      }}
-    >
+    <div className="drum-pad" id={props.clipId} onClick={playAudio}>
       <audio src={props.clip} className="clip" id={props.keyTrigger} />
       {props.keyTrigger}
     </div>
