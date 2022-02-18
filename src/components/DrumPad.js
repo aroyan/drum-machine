@@ -85,7 +85,13 @@ export default function DrumPad({ display, setDisplay }) {
       <Grid templateColumns={'repeat(3, 1fr)'} className="pad-bank" mb={'4'}>
         {padBank}
       </Grid>
-      <Heading as={'h2'} fontSize={'xl'} id="display">
+      <Heading
+        as={'h2'}
+        fontSize={'xl'}
+        id="display"
+        cursor={'none'}
+        userSelect={'none'}
+      >
         {display}
       </Heading>
     </Box>
