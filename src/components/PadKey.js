@@ -36,6 +36,11 @@ export default function PadKey(props) {
       p={'6'}
       m={'2'}
       borderRadius={'0.5rem'}
+      tabIndex={'0'}
+      _focus={{
+        outline: '2px solid cyan',
+        border: 'none',
+      }}
     >
       <audio src={props.clip} className="clip" id={props.keyTrigger} />
       <Text
