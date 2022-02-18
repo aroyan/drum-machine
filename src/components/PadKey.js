@@ -32,7 +32,7 @@ export default function PadKey(props) {
       className="drum-pad"
       id={props.clipId}
       onClick={playAudio}
-      border={'2px solid indigo'}
+      border={'2px solid #38B2AC'}
       p={'6'}
       m={'2'}
       borderRadius={'0.5rem'}
