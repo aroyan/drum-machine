@@ -1,6 +1,6 @@
 import './App.css';
-import { useEffect } from 'react';
-// import { ChakraProvider } from '@chakra-ui/react';
+import { useState, useEffect } from 'react';
+import { ChakraProvider } from '@chakra-ui/react';
 
 //todo use useState to display an id of display
 function PadKey(props) {
@@ -10,6 +10,7 @@ function PadKey(props) {
       e.key === props.keyTrigger.toLowerCase() ||
       e.key === props.keyTrigger
     ) {
+      props.setDisplay(props.clipId);
       playAudio();
     }
   }
@@ -18,6 +19,7 @@ function PadKey(props) {
     const audio = document.getElementById(props.keyTrigger);
     audio.currentTime = 0;
     audio.play();
+    props.setDisplay(props.clipId);
   }
   //Add event listener using useEffect hook
   useEffect(() => {
@@ -56,7 +58,7 @@ const audioBank = [
     keyCode: '87',
     code: 'KeyW',
     keyTrigger: 'W',
-    id: 'hiHat',
+    id: 'hi-Hat',
     url: 'https://res.cloudinary.com/dmgrxm78p/video/upload/v1644921660/drum-kit/hihat_hekzcw.wav',
   },
   {
@@ -70,7 +72,7 @@ const audioBank = [
     keyCode: '65',
     code: 'KeyA',
     keyTrigger: 'A',
-    id: 'openHat',
+    id: 'open-Hat',
     url: 'https://res.cloudinary.com/dmgrxm78p/video/upload/v1644921661/drum-kit/openhat_rhdmxs.wav',
   },
   {
@@ -110,33 +112,40 @@ const audioBank = [
   },
 ];
 
-function DrumPad() {
+function DrumPad({ display, setDisplay }) {
   let padBank;
   padBank = audioBank.map((clip) => {
     return (
       <PadKey
         clip={clip.url}
-        clipId={clip.id}
+        clipId={clip.id.toUpperCase().replace(/-/g, ' ')}
         key={clip.keyCode}
         keyTrigger={clip.keyTrigger}
+        setDisplay={setDisplay}
       />
     );
   });
-  return <div className="pad-bank">{padBank}</div>;
+  return (
+    <div className="pad-bank">
+      {padBank}
+      <p id="display">{display}</p>
+    </div>
+  );
 }
 
 function App() {
+  const [display, setDisplay] = useState('press');
   return (
-    // <ChakraProvider>
-    <div className="App">
-      <div id="drum-machine">
-        <div id="display">
-          <h2>Drum Machine</h2>
-          <DrumPad />
+    <ChakraProvider>
+      <div className="App">
+        <div id="drum-machine">
+          <div id="display">
+            <h2>Drum Machine</h2>
+            <DrumPad display={display} setDisplay={setDisplay} />
+          </div>
         </div>
       </div>
-    </div>
-    // </ChakraProvider>
+    </ChakraProvider>
   );
 }
 
