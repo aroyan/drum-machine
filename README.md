@@ -1,70 +1,75 @@
-# Getting Started with Create React App
+# Drum Machine - FreeCodeCamp Front End Libraries Development
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Preview for Drum Machine](./public/preview.png)
 
-## Available Scripts
+## Table of contents
 
-In the project directory, you can run:
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
 
-### `npm start`
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Useful resources](#useful-resources)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- [Author](#author)
+- [Acknowledgments](#acknowledgments)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Overview
 
-### `npm test`
+Third project of Front End Libraries Development by [freeCodeCamp](https://freecodecamp.org) building Drum Machine
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### The challenge
 
-### `npm run build`
+Fulfill the below user stories and get all of the tests to pass. Give it your own personal style.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. I should be able to see an outer container with a corresponding `id="drum-machine"` that contains all other elements.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. Within `#drum-machine` I can see an element with a corresponding `id="display"`.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. Within `#drum-machine` I can see 9 clickable drum pad elements, each with a class name of `drum-pad`, a unique id that describes the audio clip the drum pad will be set up to trigger, and an inner text that corresponds to one of the following keys on the keyboard: **Q, W, E, A, S, D, Z, X, C**. The drum pads MUST be in this order.
 
-### `npm run eject`
+4. Within each .drum-pad, there should be an HTML5 audio element which has a src attribute pointing to an audio clip, a class name of clip, and an id corresponding to the inner text of its parent `.drum-pad` (e.g. `id="Q"`, `id="W"`, `id="E"` etc.).
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+5. When I click on a `.drum-pad` element, the audio clip contained in its child audio element should be triggered.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+6. When I press the trigger key associated with each `.drum-pad`, the audio clip contained in its child audio element should be triggered (e.g. pressing the Q key should trigger the drum pad which contains the string Q, pressing the W key should trigger the drum pad which contains the string W, etc.).
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+7. When a `.drum-pad` is triggered, a string describing the associated audio clip is displayed as the inner text of the `#display` element (each string must be unique).
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+You can build your project by using this CodePen template and clicking Save to create your own pen. Or you can use this CDN link to run the tests in any environment you like: [Test Script](https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js)
 
-## Learn More
+### Screenshot
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![](./public/preview.png)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Links
 
-### Code Splitting
+Live Site URL: [Drum Machine](https://drum-machine-arbase.vercel.app/)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## My process
 
-### Analyzing the Bundle Size
+### Built with
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- [React](https://reactjs.org/) - JS library
+- [Chakra UI](https://chakra-ui.com/) - Component library
 
-### Making a Progressive Web App
+### What I learned
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+By building this Drum machine using React I learned a lot of React concepts like useState, useEffects, props, keys and list, and how to pass a state to others components.
 
-### Advanced Configuration
+### Useful resources
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- [Pass state to sibling components](https://laurieontech.com/posts/sibling-state/) - This helped me for understanding how to pass state to others components. I really liked this article because this article is well explained.
+- [Why do we need keys in React](https://www.youtube.com/watch?v=J_S97E8xjcA&) - This is an amazing video which helped me finally understand why we need keys in React. I'd recommend it to anyone still learning this concept.
 
-### Deployment
+## Author
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- Website - [Aroyan Bakti](https://www.aroyanbakti.com)
+- Twitter - [@aroyanbaktis](https://www.twitter.com/aroyanbaktis)
 
-### `npm run build` fails to minify
+## Acknowledgments
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Thanks to [ReactJS Indonesia Community](https://t.me/react_idn) and [codingfess](https://twitter.com/codingfess) for helped me to answers my questions.
