@@ -23,8 +23,13 @@ function App() {
             minW={'full'}
             minH={'100vh'}
           >
-            <Heading as={'h1'} mb={'10'}>
-              Drum Machine
+            <Heading
+              as={'h1'}
+              mb={'10'}
+              color={'#4e9894'}
+              letterSpacing={'-1px'}
+            >
+              DRUM MACHINE
             </Heading>
             <DrumPad display={display} setDisplay={setDisplay} />
           </Flex>
