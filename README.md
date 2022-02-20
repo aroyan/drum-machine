@@ -16,6 +16,7 @@
 
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
+- [Development](#development)
 
 ## Overview
 
@@ -73,3 +74,13 @@ By building this Drum machine using React I learned a lot of React concepts like
 ## Acknowledgments
 
 Thanks to [ReactJS Indonesia Community](https://t.me/react_idn) and [codingfess](https://twitter.com/codingfess) for helped me to answers my questions.
+
+## Development
+
+Clone the repository, install the dependencies and start the application
+
+```
+git clone https://github.com/aroyan/drum-machine.git
+npm install
+npm run dev
+```
