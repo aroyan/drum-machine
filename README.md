@@ -82,5 +82,5 @@ Clone the repository, install the dependencies and start the application
 ```
 git clone https://github.com/aroyan/drum-machine.git
 npm install
-npm run dev
+npm start
 ```
